@@ -2,45 +2,45 @@
 #include <stdlib.h>
 
 void list_files( char* directory) {
-    char buffer[100];
-    snprintf(buffer, sizeof(buffer), "ls -la %s", directory);
-    system(buffer);
+    char Command[]="ls -la ";
+    strcat(Command,directory);
+    system(Command);
 }
 
 void change_permissions( char* file_path,  char* permissions) {
-    char buffer[100];
-    snprintf(buffer, sizeof(buffer), "chmod %s %s", permissions, file_path);
-    system(buffer);
+    char Command[100];
+    snprintf(Command, sizeof(Command), "chmod %s %s", permissions, file_path);
+    system(Command);
 }
 
-void create_file( char* file_path) {
-    char buffer[100];
-    snprintf(buffer, sizeof(buffer), "touch %s", file_path);
-    system(buffer);
+void create_file(char* file_path) {
+    char Command[100];
+    snprintf(Command, sizeof(Command), "touch %s", file_path);
+    system(Command);
 }
 
 void delete_file(char* file_path) {
-    char buffer[100];
-    snprintf(buffer, sizeof(buffer), "rm %s", file_path);
-    system(buffer);
+    char Command[100];
+    snprintf(Command, sizeof(Command), "rm %s", file_path);
+    system(Command);
 }
 
 void create_directory( char* directory_path) {
-    char buffer[100];
-    snprintf(buffer, sizeof(buffer), "mkdir %s", directory_path);
-    system(buffer);
+    char Command[100];
+    snprintf(Command, sizeof(Command), "mkdir %s", directory_path);
+    system(Command);
 }
 
 void delete_directory( char* directory_path) {
-    char buffer[100];
-    snprintf(buffer, sizeof(buffer), "rm -r %s", directory_path);
-    system(buffer);
+    char Command[100];
+    snprintf(Command, sizeof(Command), "rm -r %s", directory_path);
+    system(Command);
 }
 
 void create_symbolic_link(char* source_path,  char* link_path) {
-    char buffer[100];
-    snprintf(buffer, sizeof(buffer), "ln -s %s %s", source_path, link_path);
-    system(buffer);
+    char Command[100];
+    snprintf(Command, sizeof(Command), "ln -s %s %s", source_path, link_path);
+    system(Command);
 }
 int main() {
 char c;
