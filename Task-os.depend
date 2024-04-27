@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1714190423 source:d:\programming\projhoss\task-os\main.c
+	<stdio.h>
+	<stdlib.h>
+
