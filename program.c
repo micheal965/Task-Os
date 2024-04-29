@@ -25,15 +25,14 @@ system(Command);
 }
 
 void change_permissions(GtkWidget* button, gpointer user_data){
-    // Create the main window
+
     GtkWidget* window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_title(GTK_WINDOW(window), "Change permission");
     gtk_container_set_border_width(GTK_CONTAINER(window), 10);
 
-    // Connect the main window's destroy event to the callback function
+
     g_signal_connect(window, "destroy", G_CALLBACK(on_window_destroy), NULL);
 
-    // Create a vertical box container
     GtkWidget* vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);
     gtk_container_add(GTK_CONTAINER(window), vbox);
 
@@ -45,10 +44,10 @@ void change_permissions(GtkWidget* button, gpointer user_data){
     g_signal_connect(button,"clicked",G_CALLBACK(save_text),data);
     gtk_box_pack_start(GTK_BOX(vbox), button, FALSE, FALSE, 0);
 
-        // Show all the widgets
+   
     gtk_widget_show_all(window);
 
-    // Start the GTK main loop
+   
     gtk_main();
 }
 
@@ -85,19 +84,18 @@ void delete_directory(GtkWidget* button, gpointer user_data) {
 }
 
 void create_symbolic_link(GtkWidget* button, gpointer user_data) {
-    // Create the main window
+
     GtkWidget* window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_title(GTK_WINDOW(window), "Create symbolic link");
     gtk_container_set_border_width(GTK_CONTAINER(window), 10);
 
-    // Connect the main window's destroy event to the callback function
+   
     g_signal_connect(window, "destroy", G_CALLBACK(on_window_destroy), NULL);
 
-    // Create a vertical box container
+
     GtkWidget* vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);
     gtk_container_add(GTK_CONTAINER(window), vbox);
 
-    // Create an entry field for the directory path
     GtkWidget* symbolic_link = gtk_entry_new();
     gtk_box_pack_start(GTK_BOX(vbox), symbolic_link, FALSE, FALSE, 0);
     gpointer data[2]={user_data,symbolic_link};
@@ -105,10 +103,10 @@ void create_symbolic_link(GtkWidget* button, gpointer user_data) {
     g_signal_connect(button,"clicked",G_CALLBACK(save_text2),data);
     gtk_box_pack_start(GTK_BOX(vbox), button, FALSE, FALSE, 0);
 
-        // Show all the widgets
+
     gtk_widget_show_all(window);
 
-    // Start the GTK main loop
+ 
     gtk_main();
 }
 void on_window_destroy(GtkWidget* widget, gpointer user_data) {
@@ -138,22 +136,21 @@ void save_text2(GtkWidget* widget, gpointer user_data){
 }
    
 int main(int argc, char* argv[]) {
-    // Initialize GTK	
+ 
     gtk_init(&argc, &argv);
 
-    // Create the main window
     GtkWidget* window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_title(GTK_WINDOW(window), "File Manager");
     gtk_container_set_border_width(GTK_CONTAINER(window), 10);
 
-    // Connect the main window's destroy event to the callback function
+   
     g_signal_connect(window, "destroy", G_CALLBACK(on_window_destroy), NULL);
 
-    // Create a vertical box container
+   
     GtkWidget* vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);
     gtk_container_add(GTK_CONTAINER(window), vbox);
 
-    // Create an entry field for the directory path
+  
     GtkWidget* path_entry = gtk_entry_new();
     gtk_box_pack_start(GTK_BOX(vbox), path_entry, FALSE, FALSE, 0);
 
@@ -192,9 +189,8 @@ int main(int argc, char* argv[]) {
     g_signal_connect(symbolic_link_button, "clicked", G_CALLBACK(create_symbolic_link), path_entry);
     gtk_box_pack_start(GTK_BOX(vbox), symbolic_link_button, FALSE, FALSE, 0);
 
-    // Show all the widgets
     gtk_widget_show_all(window);
 
-    // Start the GTK main loop
+
     gtk_main();
 }
