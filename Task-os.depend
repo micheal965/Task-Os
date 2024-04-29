@@ -3,3 +3,9 @@
 	<stdio.h>
 	<stdlib.h>
 
+1714195466 source:d:\task-os\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
